@@ -1,22 +1,22 @@
 const stdin = process.stdin;
 
+let inputs = {
+  w: 'Move: up',
+  d: 'Move: right',
+  s: 'Move: down',
+  a: 'Move: left',
+  k: 'Say: nice move',
+  l: 'Say: good effort!'
+};
+
 let connection;
 
 const handleUserInput = stdin.on('data', key => {
   if (key === '\u0003') { // if it's ctrl + c, exit the program
     process.exit();
-  } else if (key === 'w') {
-    connection.write('Move: up');
-  } else if (key === 'd') {
-    connection.write('Move: right');
-  } else if (key === 's') {
-    connection.write('Move: down');
-  } else if (key === 'a') {
-    connection.write('Move: left');
-  } else if (key === 'k') {
-    connection.write('Say: nice move');
-  } else if (key === 'l') {
-    connection.write('Say: good effort!');
+  }
+  if (inputs[key]) {
+    connection.write(inputs[key]);
   }
 });
 

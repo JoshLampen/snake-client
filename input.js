@@ -13,6 +13,10 @@ const handleUserInput = stdin.on('data', key => {
     connection.write('Move: down');
   } else if (key === 'a') {
     connection.write('Move: left');
+  } else if (key === 'k') {
+    connection.write('Say: nice move');
+  } else if (key === 'l') {
+    connection.write('Say: good effort!');
   }
 });
 
